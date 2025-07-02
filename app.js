@@ -21,6 +21,15 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
 
+ // 這裡加入條件判斷
+  if (event.message.text === '123') {
+    return client.replyMessage(event.replyToken, {
+      type: 'text',
+      text: '567',
+    });
+  }
+
+    // 否則就照原本回覆內容
   return client.replyMessage(event.replyToken, {
     type: 'text',
     text: `你說的是：「${event.message.text}」`
